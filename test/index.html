@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>js-fuzzyMatch // proof of concept</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/s.css">
+</head>
+<body>
+	<header>
+		<h1>js fuzzyMatch</h1>
+		<h2>a proof of concept</h2>
+	</header>
+	<a href="https://github.com/unamatasanatarai/FuzzyMatch" class="enjoy">Download</a>
+	<section>
+		<form>
+			<input id="s" placeholder="start typing" autofocus>
+			<input type="checkbox" id="c">Hi-Lite block
+		</form>
+		<ol>
+			<li>Aardwolf	Proteles cristatus
+			<li>Admiral, indian red	Vanessa indica
+			<li>Adouri (unidentified)	unavailable
+			<li>African black crake	Limnocorax flavirostra
+			<li>African buffalo	Snycerus caffer
+			<li>African bush squirrel	Paraxerus cepapi
+			<li>African clawless otter	Aonyx capensis
+			<li>African darter	Anhinga rufa
+			<li>African elephant	Loxodonta africana
+			<li>African fish eagle	Haliaetus vocifer
+			<li>African ground squirrel (unidentified)	Xerus sp.
+			<li>African lion	Panthera leo
+			<li>African lynx	Felis caracal
+			<li>African pied wagtail	Motacilla aguimp
+			<li>African polecat	Ictonyx striatus
+			<li>African porcupine	Hystrix cristata
+			<li>African red-eyed bulbul	Pycnonotus nigricans
+			<li>African skink	Mabuya spilogaster
+			<li>African snake (unidentified)	unavailable
+			<li>African wild cat	Felis silvestris lybica
+			<li>African wild dog	Lycaon pictus
+			<li>Agama lizard (unidentified)	Agama sp.
+			<li>Agile wallaby	Macropus agilis
+			<li>Agouti	Dasyprocta leporina
+			<li>Albatross, galapagos	Diomedea irrorata
+			<li>Albatross, waved	Diomedea irrorata
+			<li>Alligator, american	Alligator mississippiensis
+			<li>Alligator, mississippi	Alligator mississippiensis
+			<li>Alpaca	Lama pacos
+			<li>Amazon parrot (unidentified)	Amazona sp.
+			<li>American Virginia opossum	Didelphis virginiana
+			<li>American alligator	Alligator mississippiensis
+			<li>American badger	Taxidea taxus
+			<li>American beaver	Castor canadensis
+			<li>American bighorn sheep	Ovis canadensis
+			<li>American bison	Bison bison
+			<li>American black bear	Ursus americanus
+			<li>American buffalo	Bison bison
+			<li>American crow	Corvus brachyrhynchos
+			<li>American marten	Martes americana
+			<li>American racer	Coluber constrictor
+			<li>American woodcock	Scolopax minor
+			<li>Anaconda (unidentified)	Eunectes sp.
+			<li>Andean goose	Chloephaga melanoptera
+			<li>Ant (unidentified)	unavailable
+			<li>Anteater, australian spiny	Tachyglossus aculeatus
+			<li>Anteater, giant	Myrmecophaga tridactyla
+			<li>Antechinus, brown	Antechinus flavipes
+			<li>Antelope ground squirrel	Ammospermophilus nelsoni
+			<li>Antelope, four-horned	Tetracerus quadricornis
+			<li>Antelope, roan	Hippotragus equinus
+			<li>Antelope, sable	Hippotragus niger
+			<li>Arboral spiny rat	Echimys chrysurus
+			<li>Arctic fox	Alopex lagopus
+			<li>Arctic ground squirrel	Spermophilus parryii
+			<li>Arctic hare	Lepus arcticus
+			<li>Arctic lemming	Dicrostonyx groenlandicus
+			<li>Arctic tern	Sterna paradisaea
+			<li>Argalis	Ovis ammon
+			<li>Armadillo, common long-nosed	Dasypus novemcinctus
+			<li>Armadillo, giant	Priodontes maximus
+			<li>Armadillo, nine-banded	Dasypus novemcinctus
+			<li>Armadillo, seven-banded	Dasypus septemcincus
+			<li>Asian elephant	Elephas maximus bengalensis
+			<li>Asian false vampire bat	Megaderma spasma
+			<li>Asian foreset tortoise	Manouria emys
+			<li>Asian lion	Panthera leo persica
+			<li>Asian openbill	Anastomus oscitans
+			<li>Asian red fox	Vulpes vulpes
+			<li>Asian water buffalo	Bubalus arnee
+			<li>Asian water dragon	Physignathus cocincinus
+			<li>Asiatic jackal	Canis aureus
+			<li>Asiatic wild ass	Equus hemionus
+			<li>Ass, asiatic wild	Equus hemionus
+			<li>Australian brush turkey	Alectura lathami
+			<li>Australian magpie	Gymnorhina tibicen
+			<li>Australian masked owl	Tyto novaehollandiae
+			<li>Australian pelican	Pelecanus conspicillatus
+			<li>Capuchin, weeper	Cebus nigrivittatus
+			<li>Capuchin, white-fronted	Cebus albifrons
+			<li>Capybara	Hydrochoerus hydrochaeris
+			<li>Caracal	Felis caracal
+			<li>Caracara (unidentified)	unavailable
+			<li>Caracara, yellow-headed	Milvago chimachima
+			<li>Cardinal, black-throated	Paroaria gularis
+			<li>Cardinal, red-capped	Paroaria gularis
+			<li>Caribou	Rangifer tarandus
+			<li>Carmine bee-eater	Merops nubicus
+			<li>Carpet python	Morelia spilotes variegata
+			<li>Carpet snake	Morelia spilotes variegata
+			<li>Cat, african wild	Felis silvestris lybica
+			<li>Cat, cape wild	Felis libyca
+			<li>Cat, civet	Bassariscus astutus
+			<li>Cat, european wild	Felis silvestris lybica
+			<li>Cat, jungle	Felis chaus
+			<li>Cat, kaffir	Felis silvestris lybica
+			<li>Cat, long-tailed spotted	Felis wiedi or Leopardus weidi
+			<li>Cat, miner's	Bassariscus astutus
+			<li>Cat, native	Dasyurus viverrinus
+			<li>Cat, ringtail	Bassariscus astutus
+			<li>Cat, tiger	Dasyurus maculatus
+			<li>Cat, toddy	Paradoxurus hermaphroditus
+			<li>Catfish, blue	Ictalurus furcatus
+			<li>Cattle egret	Bubulcus ibis
+			<li>Cereopsis goose	Cereopsis novaehollandiae
+			<li>Eleven-banded armadillo (unidentified)	Cabassous sp.
+			<li>Elk, Wapiti	Cervus canadensis
+			<li>Emerald green tree boa	Boa caninus
+			<li>Emerald-spotted wood dove	Turtur chalcospilos
+			<li>Emu	Dromaeus novaehollandiae
+			<li>Eurasian badger	Meles meles
+			<li>Eurasian beaver	Castor fiber
+			<li>Eurasian hoopoe	Upupa epops
+			<li>Hartebeest, coke's	Alcelaphus buselaphus cokii
+			<li>Hartebeest, red	Alcelaphus buselaphus caama
+			<li>Hawk, ferruginous	Buteo regalis
+			<li>Hawk, galapagos	Buteo galapagoensis
+			<li>Hawk, red-tailed	Buteo jamaicensis
+			<li>Hawk-eagle, crowned	Spizaetus coronatus
+			<li>Hawk-headed parrot	Deroptyus accipitrinus
+			<li>Hedgehog, south african	Erinaceus frontalis
+			<li>Helmeted guinea fowl	Numida meleagris
+			<li>Hen, sage	Centrocercus urophasianus
+			<li>Heron, black-crowned night	Nycticorax nycticorax
+			<li>Heron, boat-billed	Cochlearius cochlearius
+			<li>Heron, giant	Ardea golieth
+			<li>Heron, goliath	Ardea golieth
+			<li>Heron, gray	Ardea cinerea
+			<li>Heron, green	Butorides striatus
+			<li>Heron, green-backed	Butorides striatus
+			<li>Heron, grey	Ardea cinerea
+			<li>Heron, little	Butorides striatus
+			<li>Heron, striated	Butorides striatus
+			<li>Lynx, african	Felis caracal
+			<li>Macaque, bonnet	Macaca radiata
+			<li>Macaque, japanese	Macaca fuscata
+			<li>Macaque, pig-tailed	Macaca nemestrina
+			<li>Macaque, rhesus	Macaca mulatta
+			<li>Macaw, blue and gold	Ara ararauna
+			<li>Macaw, blue and yellow	Ara ararauna
+			<li>Macaw, green-winged	Ara chloroptera
+			<li>Macaw, red and blue	Ara chloroptera
+			<li>Macaw, scarlet	Ara macao
+			<li>Madagascar fruit bat	Pteropus rufus
+			<li>Madagascar hawk owl	Ninox superciliaris
+			<li>Magellanic penguin	Spheniscus magellanicus
+			<li>Magistrate black colobus	Colobus guerza
+			<li>Magnificent frigate bird	Fregata magnificans
+			<li>Magpie, australian	Gymnorhina tibicen
+			<li>Phalarope, northern	Phalaropus lobatus
+			<li>Phalarope, red	Phalaropus fulicarius
+			<li>Phalarope, red-necked	Phalaropus lobatus
+			<li>Phascogale, brush-tailed	Phascogale tapoatafa
+			<li>Phascogale, red-tailed	Phascogale calura
+			<li>Pheasant, common	Phasianus colchicus
+			<li>Pheasant, ring-necked	Phasianus colchicus
+			<li>Pie, indian tree	Dendrocitta vagabunda
+			<li>Pie, rufous tree	Dendrocitta vagabunda
+			<li>Pied avocet	Recurvirostra avosetta
+			<li>Pied butcher bird	Cracticus nigroagularis
+			<li>Pied cormorant	Phalacrocorax varius
+			<li>Pied crow	Corvus albus
+			<li>Pied kingfisher	Ceryle rudis
+			<li>Pig-tailed macaque	Macaca nemestrina
+			<li>Pigeon, feral rock	Columba livia
+			<li>Pigeon, wood	Columba palumbus
+			<li>Pine siskin	Carduelis pinus
+			<li>Pine snake (unidentified)	Pituophis melanaleucus
+			<li>Pine squirrel	Tamiasciurus hudsonicus
+			<li>Pintail, bahama	Anas bahamensis
+			<li>Pintail, white-cheeked	Anas bahamensis
+			<li>Plains zebra	Equus burchelli
+			<li>Ring-tailed lemur	Lemur catta
+			<li>Ring-tailed possum	Pseudocheirus peregrinus
+			<li>Ringtail	Bassariscus astutus
+			<li>Ringtail cat	Bassariscus astutus
+			<li>Ringtail, common	Pseudocheirus peregrinus
+			<li>River wallaby	Macropus agilis
+			<li>Roadrunner, greater	Geococcyx californianus
+			<li>Roan antelope	Hippotragus equinus
+			<li>Robin, kalahari scrub	Certotrichas paena
+			<li>Robin, white-throated	Irania gutteralis
+			<li>Skunk, striped	Mephitis mephitis
+			<li>Skunk, western spotted	Spilogale gracilis
+			<li>Slender loris	Loris tardigratus
+			<li>Slender-billed cockatoo	Cacatua tenuirostris
+			<li>Sloth bear	Melursus ursinus
+			<li>Sloth, hoffman's	Choloepus hoffmani
+			<li>Sloth, pale-throated three-toed	Bradypus tridactylus
+			<li>Sloth, two-toed	Choloepus hoffmani
+			<li>Sloth, two-toed tree	Choloepus hoffmani
+			<li>Small Indian mongoose	Herpestes javanicus
+			<li>Swainson's francolin	Francolinus swainsonii
+			<li>Swallow (unidentified)	unavailable
+			<li>Swallow-tail gull	Creagrus furcatus
+			<li>Swamp deer	Cervus duvauceli
+			<li>Swan, black	Cygnus atratus
+			<li>Swan, trumpeter	Cygnus buccinator
+			<li>Tailless tenrec	Tenrec ecaudatus
+			<li>Tamandua, southern	Tamandua tetradactyla
+			<li>Tammar wallaby	Macropus eugenii
+			<li>Tapir, brazilian	Tapirus terrestris
+			<li>Tarantula	Lasiodora parahybana
+			<li>Tarantula, salmon pink bird eater	Lasiodora parahybana
+			<li>Tasmanian devil	Sarcophilus harrisii
+			<li>Tawny eagle	Anitibyx armatus
+			<li>Tawny frogmouth	Podargus strigoides
+			<li>Tayra	Eira barbata
+			<li>Teal, hottentot	Anas punctata
+			<li>Tenrec, tailless	Tenrec ecaudatus
+			<li>Tern, arctic	Sterna paradisaea
+			<li>Tern, royal	Thalasseus maximus
+			<li>Tern, white-winged	Chlidonias leucopterus
+			<li>Tern, white-winged black	Chlidonias leucopterus
+			<li>Thirteen-lined squirrel	Spermophilus tridecemlineatus
+			<li>Thomson's gazelle	Gazella thompsonii
+			<li>Thrasher, curve-billed	Toxostoma curvirostre
+			<li>Three-banded plover	Charadrius tricollaris
+			<li>Tiger	Panthera tigris
+			<li>Tiger cat	Dasyurus maculatus
+			<li>Turtle, long-necked	Chelodina longicollis
+			<li>Turtle, snake-necked	Chelodina longicollis
+			<li>Two-banded monitor	Varanus salvator
+			<li>Two-toed sloth	Choloepus hoffmani
+			<li>Two-toed tree sloth	Choloepus hoffmani
+			<li>Tyrant flycatcher	Myiarchus tuberculifer
+			<li>Uinta ground squirrel	Spermophilus armatus
+			<li>Urial	Ovis orientalis
+			<li>Verreaux's sifaka	Propithecus verreauxi
+			<li>Vervet monkey	Cercopithecus aethiops
+			<li>Vicuna	Vicugna vicugna
+			<li>Vine snake (unidentified)	Oxybelis sp.
+			<li>Violet-crested turaco	Tauraco porphyrelophus
+			<li>Violet-eared waxbill	Uraeginthus granatina
+			<li>Viper, egyptian	Naja haje
+			<li>Vulture, bengal	Gyps bengalensis
+			<li>Vulture, black	Aegypius tracheliotus
+			<li>Vulture, egyptian	Neophron percnopterus
+			<li>Vulture, griffon	Gyps fulvus
+			<li>Vulture, king	Sarcorhamphus papa
+			<li>Vulture, lappet-faced	Aegypius tracheliotus
+			<li>Vulture, oriental white-backed	Gyps bengalensis
+			<li>Vulture, turkey	Cathartes aura
+			<li>Vulture, white-headed	Aegypius occipitalis
+			<li>Vulture, white-rumped	Gyps bengalensis
+			<li>Wagtail, african pied	Motacilla aguimp
+			<li>Wallaby, agile	Macropus agilis
+			<li>Wallaby, bennett's	Macropus rufogriseus
+			<li>Wallaby, dama	Macropus eugenii
+			<li>Wallaby, euro	Macropus robustus
+			<li>Wallaby, red-necked	Macropus rufogriseus
+			<li>Wallaby, river	Macropus agilis
+			<li>Wallaby, tammar	Macropus eugenii
+			<li>Wallaby, whip-tailed	Macropus parryi
+			<li>Wallaroo, common	Macropus robustus
+			<li>Wambenger, red-tailed	Phascogale calura
+			<li>Wapiti, elk,	Cervus canadensis
+			<li>Warthog	Phacochoerus aethiopus
+			<li>Water legaan	Varanus salvator
+			<li>Water moccasin	Agkistrodon piscivorus
+			<li>Yellow-billed stork	Mycteria ibis
+			<li>Yellow-brown sungazer	Cordylus giganteus
+			<li>Yellow-crowned night heron	Nyctanassa violacea
+			<li>Yellow-headed caracara	Milvago chimachima
+			<li>Yellow-necked spurfowl	Francolinus leucoscepus
+			<li>Yellow-rumped siskin	Carduelis uropygialis
+			<li>Yellow-throated sandgrouse	Pterocles gutturalis
+			<li>Zebra, common	Equus burchelli
+			<li>Zebra, plains	Equus burchelli
+			<li>Zorilla	Ictonyx striatus
+			<li>Zorro, azara's	Pseudalopex gymnocercus
+			<li>Zorro, common	Dusicyon thous
+		</ol>
+	</section>
+	<script src="../lib/jquery-2.1.0.min.js"></script>
+	<script src="../lib/js-fuzzyMatch.js"></script>
+	<script>
+	var lis = $('li');
+	var max = lis.length;
+	var i = 0;
+	for(; i<max; i++){
+		var e = lis.eq(i);
+		e.data('fs', e.text());
+	}
+	$('#c').change(function(){$('#s').keyup()});
+	$('#s').keyup(function(){
+		if ($(this).val() == ''){
+			return;
+		}
+		fuzzyMatch.prep($(this).val());
+
+		for(i = 0; i<max; i++){
+			var e = lis.eq(i);
+			if (fuzzyMatch.match(e.data('fs'))){
+				e.show();
+				if ($('#c').is(':checked')){
+					e.html(fuzzyMatch.hiblock(e.data('fs')));
+				}else{
+					e.html(fuzzyMatch.hi(e.data('fs')));
+				}
+			}else{
+				e.hide();
+			}
+		}
+	});
+	</script>
+</body>
+</html>
