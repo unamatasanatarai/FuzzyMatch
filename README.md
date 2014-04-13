@@ -2,6 +2,7 @@ FuzzyMatch
 ==========
 
 JavaScript proof-of-concept fuzzy match working with RegEx.
+[see it in action](http://unamatasanatarai.github.io/FuzzyMatch/test/index.html)
 
 ## Usage
 __Checking if match is found__
